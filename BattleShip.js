@@ -5,9 +5,9 @@ var model = {
     shipsSunk: 0,
 
     ships: [
-        { locations: [0, 0, 0], hits: ["", "", ""] },
-        { locations: [0, 0, 0], hits: ["", "", ""] },
-        { locations: [0, 0, 0], hits: ["", "", ""] }
+        {locations: [0, 0, 0], hits: ["", "", ""]},
+        {locations: [0, 0, 0], hits: ["", "", ""]},
+        {locations: [0, 0, 0], hits: ["", "", ""]}
     ],
 
 // original hard-coded values for ship locations
@@ -19,7 +19,7 @@ var model = {
         ],
     */
 
-    fire: function(guess) {
+    fire: function (guess) {
         for (var i = 0; i < this.numShips; i++) {
             var ship = this.ships[i];
             var index = ship.locations.indexOf(guess);
@@ -46,8 +46,8 @@ var model = {
         return false;
     },
 
-    isSunk: function(ship) {
-        for (var i = 0; i < this.shipLength; i++)  {
+    isSunk: function (ship) {
+        for (var i = 0; i < this.shipLength; i++) {
             if (ship.hits[i] !== "hit") {
                 return false;
             }
@@ -55,7 +55,7 @@ var model = {
         return true;
     },
 
-    generateShipLocations: function() {
+    generateShipLocations: function () {
         var locations;
         for (var i = 0; i < this.numShips; i++) {
             do {
@@ -67,7 +67,7 @@ var model = {
         console.log(this.ships);
     },
 
-    generateShip: function() {
+    generateShip: function () {
         var direction = Math.floor(Math.random() * 2);
         var row, col;
 
@@ -90,7 +90,7 @@ var model = {
         return newShipLocations;
     },
 
-    collision: function(locations) {
+    collision: function (locations) {
         for (var i = 0; i < this.numShips; i++) {
             var ship = this.ships[i];
             for (var j = 0; j < locations.length; j++) {
@@ -106,17 +106,17 @@ var model = {
 
 
 var view = {
-    displayMessage: function(msg) {
+    displayMessage: function (msg) {
         var messageArea = document.getElementById("messageArea");
         messageArea.innerHTML = msg;
     },
 
-    displayHit: function(location) {
+    displayHit: function (location) {
         var cell = document.getElementById(location);
         cell.setAttribute("class", "hit");
     },
 
-    displayMiss: function(location) {
+    displayMiss: function (location) {
         var cell = document.getElementById(location);
         cell.setAttribute("class", "miss");
     }
@@ -126,7 +126,7 @@ var view = {
 var controller = {
     guesses: 0,
 
-    processGuess: function(guess) {
+    processGuess: function (guess) {
         var location = parseGuess(guess);
         if (location) {
             this.guesses++;
