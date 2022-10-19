@@ -104,7 +104,6 @@ var model = {
 
 };
 
-
 var view = {
     displayMessage: function (msg) {
         var messageArea = document.getElementById("messageArea");
@@ -120,7 +119,6 @@ var view = {
         var cell = document.getElementById(location);
         cell.setAttribute("class", "miss");
     }
-
 };
 
 var controller = {
@@ -137,7 +135,6 @@ var controller = {
         }
     }
 }
-
 
 // helper function to parse a guess from the user
 
@@ -163,7 +160,6 @@ function parseGuess(guess) {
     return null;
 }
 
-
 // event handlers
 
 function handleFireButton() {
@@ -187,7 +183,6 @@ function handleKeyPress(e) {
         return false;
     }
 }
-
 
 // init - called when the page has completed loading
 
